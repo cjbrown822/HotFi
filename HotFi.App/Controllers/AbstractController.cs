@@ -5,24 +5,12 @@ namespace HotFi.App.Controllers
 {
     public abstract class AbstractController<T> : ControllerBase where T : class
     {
-        public virtual async Task<T> Get(string id)
-        {
-            return null;
-        }
+        protected abstract Task<T> Get(string id);
 
-        public virtual async Task<IActionResult> Create(T vm)
-        {
-            return new CreatedResult("", vm);
-        }
+        public abstract Task<IActionResult> Create(T vm);
 
-        public virtual async Task<IActionResult> Update(string id, T vm)
-        {
-            return Ok();
-        }
+        public abstract Task<IActionResult> Update(string id, T vm);
 
-        public virtual async Task<IActionResult> Delete(string id)
-        {
-            return Ok();
-        }
+        public abstract Task<IActionResult> Delete(string id);
     }
 }

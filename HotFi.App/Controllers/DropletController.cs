@@ -8,28 +8,24 @@ namespace HotFi.App.Controllers
     [Route("api/[controller]")]
     public class DropletController : AbstractController<DropletViewModel>
     {
-        [HttpGet("{id}")]
-        public override async Task<DropletViewModel> Get(string id)
+        protected override async Task<DropletViewModel> Get(string id)
         {
-            return null;
+            throw new System.NotImplementedException();
         }
 
-        [HttpPost("")]
-        public override Task<IActionResult> Create(DropletViewModel vm)
+        public override async Task<IActionResult> Create(DropletViewModel vm)
         {
-            return base.Create(vm);
+            throw new System.NotImplementedException();
         }
 
-        [HttpPut("{id}")]
-        public override Task<IActionResult> Update(string id, DropletViewModel vm)
+        public override async Task<IActionResult> Update(string id, DropletViewModel vm)
         {
-            return base.Update(id, vm);
+            throw new System.NotImplementedException();
         }
 
-        [HttpDelete("{id}")]
-        public override Task<IActionResult> Delete(string id)
+        public override async Task<IActionResult> Delete(string id)
         {
-            return base.Delete(id);
+            throw new System.NotImplementedException();
         }
     }
 }

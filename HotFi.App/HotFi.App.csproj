@@ -13,6 +13,13 @@
     <ItemGroup>
         <PackageReference Include="DigitalOcean.API" Version="5.2.0" />
         <PackageReference Include="Microsoft.AspNetCore.SpaServices.Extensions" Version="5.0.6" />
+        <PackageReference Include="Microsoft.EntityFrameworkCore" Version="5.0.7" />
+        <PackageReference Include="Microsoft.EntityFrameworkCore.Abstractions" Version="5.0.7" />
+        <PackageReference Include="Microsoft.EntityFrameworkCore.Analyzers" Version="5.0.7" />
+        <PackageReference Include="Microsoft.EntityFrameworkCore.Relational" Version="5.0.7" />
+        <PackageReference Include="Npgsql" Version="5.0.7" />
+        <PackageReference Include="Npgsql.EntityFrameworkCore.PostgreSQL" Version="5.0.7" />
+        <PackageReference Include="Npgsql.EntityFrameworkCore.PostgreSQL.Design" Version="1.1.0" />
         <PackageReference Include="SSH.NET" Version="2020.0.1" />
     </ItemGroup>
 
@@ -37,6 +44,7 @@
 
     <ItemGroup>
       <Folder Include="ClientApp\src\components" />
+      <Folder Include="Queues" />
     </ItemGroup>
 
     <Target Name="DebugEnsureNodeEnv" BeforeTargets="Build" Condition=" '$(Configuration)' == 'Debug' And !Exists('$(SpaRoot)node_modules') ">
