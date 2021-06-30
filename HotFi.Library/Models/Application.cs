@@ -17,6 +17,8 @@ namespace HotFi.Library.Models
         public string GitHubUrl { get; set; }
         public int PortNumber { get; set; }
         public bool Active { get; set; }
+        
+        public string DropletId { get; set; }
 
         public bool Archived
         {

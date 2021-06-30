@@ -1,4 +1,5 @@
 ﻿using System;
+using HotFi.App.Extensions;
 using HotFi.Library.Models;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Metadata.Builders;
@@ -10,11 +11,11 @@ namespace HotFi.App.Data
         public virtual DbSet<ApplicationUser> Users { get; set; }
         public virtual DbSet<Application> Applications { get; set; }
         public virtual DbSet<Droplet> Droplets { get; set; }
-        protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
-        {
-            base.OnConfiguring(optionsBuilder);
-        }
 
+        public ApplicationDbContext(DbContextOptions<ApplicationDbContext> options)
+            : base(options)
+        {
+        }
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
             base.OnModelCreating(modelBuilder);
@@ -38,6 +39,8 @@ namespace HotFi.App.Data
                 entity.Property(a => a.Id)
                     .ValueGeneratedOnAdd();
             });
+
+            this.MapForPostgreSql("hotfi", modelBuilder);
         }
     }
 }
