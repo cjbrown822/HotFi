@@ -3,15 +3,17 @@ using System;
 using HotFi.App.Data;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using Npgsql.EntityFrameworkCore.PostgreSQL.Metadata;
 
 namespace HotFi.App.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    partial class ApplicationDbContextModelSnapshot : ModelSnapshot
+    [Migration("20210701025832_AddingArchivedCreateDatePropsToDroplet")]
+    partial class AddingArchivedCreateDatePropsToDroplet
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -145,44 +147,6 @@ namespace HotFi.App.Migrations
                     b.ToTable("droplets", "hotfi");
                 });
 
-            modelBuilder.Entity("HotFi.Library.Models.ServerInformation", b =>
-                {
-                    b.Property<string>("Id")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("text")
-                        .HasColumnName("id");
-
-                    b.Property<string>("ApplicationServiceName")
-                        .HasColumnType("text")
-                        .HasColumnName("application_service_name");
-
-                    b.Property<string>("ApplicationSshVaultKey")
-                        .HasColumnType("text")
-                        .HasColumnName("application_ssh_vault_key");
-
-                    b.Property<string>("ApplicationUsername")
-                        .HasColumnType("text")
-                        .HasColumnName("application_username");
-
-                    b.Property<string>("DropletId")
-                        .HasColumnType("text")
-                        .HasColumnName("droplet_id");
-
-                    b.Property<string>("UserSshVaultKey")
-                        .HasColumnType("text")
-                        .HasColumnName("user_ssh_vault_key");
-
-                    b.Property<string>("Username")
-                        .HasColumnType("text")
-                        .HasColumnName("username");
-
-                    b.HasKey("Id");
-
-                    b.HasIndex("DropletId");
-
-                    b.ToTable("server_information", "hotfi");
-                });
-
             modelBuilder.Entity("HotFi.Library.Models.Application", b =>
                 {
                     b.HasOne("HotFi.Library.Models.Droplet", null)
@@ -201,15 +165,6 @@ namespace HotFi.App.Migrations
                     b.HasOne("HotFi.Library.Models.ApplicationUser", null)
                         .WithMany("Droplets")
                         .HasForeignKey("ApplicationUserId");
-                });
-
-            modelBuilder.Entity("HotFi.Library.Models.ServerInformation", b =>
-                {
-                    b.HasOne("HotFi.Library.Models.Droplet", "Droplet")
-                        .WithMany()
-                        .HasForeignKey("DropletId");
-
-                    b.Navigation("Droplet");
                 });
 
             modelBuilder.Entity("HotFi.Library.Models.ApplicationUser", b =>

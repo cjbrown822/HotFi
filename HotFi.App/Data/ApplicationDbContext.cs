@@ -11,6 +11,7 @@ namespace HotFi.App.Data
         public virtual DbSet<ApplicationUser> Users { get; set; }
         public virtual DbSet<Application> Applications { get; set; }
         public virtual DbSet<Droplet> Droplets { get; set; }
+        public virtual DbSet<ServerInformation> ServerInformation { get; set; }
 
         public ApplicationDbContext(DbContextOptions<ApplicationDbContext> options)
             : base(options)
@@ -34,6 +35,13 @@ namespace HotFi.App.Data
             });
 
             modelBuilder.Entity<Droplet>(entity =>
+            {
+                entity.HasKey(a => a.Id);
+                entity.Property(a => a.Id)
+                    .ValueGeneratedOnAdd();
+            });
+
+            modelBuilder.Entity<ServerInformation>(entity =>
             {
                 entity.HasKey(a => a.Id);
                 entity.Property(a => a.Id)
