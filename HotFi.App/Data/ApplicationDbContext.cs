@@ -10,7 +10,7 @@ namespace HotFi.App.Data
     {
         public virtual DbSet<ApplicationUser> Users { get; set; }
         public virtual DbSet<Application> Applications { get; set; }
-        public virtual DbSet<Droplet> Droplets { get; set; }
+        public virtual DbSet<DigitalOceanDroplet> Droplets { get; set; }
         public virtual DbSet<ServerInformation> ServerInformation { get; set; }
 
         public ApplicationDbContext(DbContextOptions<ApplicationDbContext> options)
@@ -34,7 +34,7 @@ namespace HotFi.App.Data
                     .ValueGeneratedOnAdd();
             });
 
-            modelBuilder.Entity<Droplet>(entity =>
+            modelBuilder.Entity<DigitalOceanDroplet>(entity =>
             {
                 entity.HasKey(a => a.Id);
                 entity.Property(a => a.Id)

@@ -14,6 +14,6 @@ namespace HotFi.Library.Models
         public string ApplicationServiceName { get; set; }
         
         public string DropletId { get; set; }
-        public virtual Droplet Droplet { get; set; }
+        public virtual DigitalOceanDroplet DigitalOceanDroplet { get; set; }
     }
 }

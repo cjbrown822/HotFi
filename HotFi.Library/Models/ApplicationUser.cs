@@ -12,6 +12,6 @@ namespace HotFi.Library.Models
         public bool CanContact { get; set; }
         
         public virtual List<Application> Applications { get; set; }
-        public virtual List<Droplet> Droplets { get; set; }
+        public virtual List<DigitalOceanDroplet> Droplets { get; set; }
     }
 }
