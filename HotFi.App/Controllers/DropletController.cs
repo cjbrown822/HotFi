@@ -1,6 +1,7 @@
 ﻿using System.Threading.Tasks;
 using HotFi.Library.ViewModel;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.Extensions.Configuration;
 
 namespace HotFi.App.Controllers
 {
@@ -8,6 +9,10 @@ namespace HotFi.App.Controllers
     [Route("api/[controller]")]
     public class DropletController : AbstractController<DropletViewModel>
     {
+
+        public DropletController(IConfiguration config) : base(config)
+        {
+        }
         protected override async Task<DropletViewModel> Get(string id)
         {
             throw new System.NotImplementedException();
