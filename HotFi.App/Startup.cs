@@ -1,3 +1,4 @@
+using HotFi.App.Clients;
 using HotFi.App.Data;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
@@ -34,6 +35,8 @@ namespace HotFi.App
             {
                 options.UseNpgsql(Configuration.GetConnectionString("DefaultConnection"));
             });
+
+            services.AddHttpClient<AuthenticationHttpClient>();
             
             services.AddControllersWithViews();
 
