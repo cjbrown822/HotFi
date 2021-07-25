@@ -1,6 +1,7 @@
 using System;
 using HotFi.App.Clients;
 using HotFi.App.Data;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.HttpsPolicy;
@@ -27,7 +28,10 @@ namespace HotFi.App
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddDistributedMemoryCache();
-            services.AddSession(options =>
+            services.AddAuthorization(options =>
+            {
+                
+            }).AddSession(options =>
             {
                 options.Cookie.Name = ".HotFi.Session";
                 options.IdleTimeout = TimeSpan.FromSeconds(10);
