@@ -1,8 +1,14 @@
 {
   "version": 2,
-  "dgSpecHash": "vm9SMkw/kVxa8dxwdfjL+VbNTc+V1+oKpRb+w3nkHxHqSfSXzHC+1xpjGhZlA6gEXh6PGqA8arjUk/uDPmrI7g==",
+  "dgSpecHash": "keCRkGCG8TIhJlnnOXjRlnFV6BqoJGTxptMday4tdu30YsSREWEUY282MpggLAW0H5V/B3bYXTONlwuryQWtvg==",
   "success": true,
   "projectFilePath": "C:\\Users\\cbpro\\RiderProjects\\HotFi\\HotFi.Library\\HotFi.Library.csproj",
-  "expectedPackageFiles": [],
+  "expectedPackageFiles": [
+    "C:\\Users\\cbpro\\.nuget\\packages\\microsoft.aspnetcore.jsonpatch\\5.0.8\\microsoft.aspnetcore.jsonpatch.5.0.8.nupkg.sha512",
+    "C:\\Users\\cbpro\\.nuget\\packages\\microsoft.aspnetcore.mvc.newtonsoftjson\\5.0.8\\microsoft.aspnetcore.mvc.newtonsoftjson.5.0.8.nupkg.sha512",
+    "C:\\Users\\cbpro\\.nuget\\packages\\microsoft.csharp\\4.7.0\\microsoft.csharp.4.7.0.nupkg.sha512",
+    "C:\\Users\\cbpro\\.nuget\\packages\\newtonsoft.json\\13.0.1\\newtonsoft.json.13.0.1.nupkg.sha512",
+    "C:\\Users\\cbpro\\.nuget\\packages\\newtonsoft.json.bson\\1.0.2\\newtonsoft.json.bson.1.0.2.nupkg.sha512"
+  ],
   "logs": []
 }

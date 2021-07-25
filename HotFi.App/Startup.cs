@@ -1,3 +1,4 @@
+using System;
 using HotFi.App.Clients;
 using HotFi.App.Data;
 using Microsoft.AspNetCore.Builder;
@@ -25,6 +26,14 @@ namespace HotFi.App
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
+            services.AddDistributedMemoryCache();
+            services.AddSession(options =>
+            {
+                options.Cookie.Name = ".HotFi.Session";
+                options.IdleTimeout = TimeSpan.FromSeconds(10);
+                options.Cookie.HttpOnly = true;
+                options.Cookie.IsEssential = true;
+            });
             JsonConvert.DefaultSettings = () => new JsonSerializerSettings()
             {
                 Formatting = Formatting.Indented,
@@ -63,7 +72,9 @@ namespace HotFi.App
             app.UseSpaStaticFiles();
 
             app.UseRouting();
-
+            
+            app.UseSession();
+            
             app.UseEndpoints(endpoints =>
             {
                 endpoints.MapControllerRoute(
